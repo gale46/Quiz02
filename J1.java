@@ -15,25 +15,23 @@ public class J1 {
 		if (pw1 == pw2) {
 			System.out.println("密碼正確");
 		} else {
-			for(int i = 0;i<=3;i++) {
-				System.out.println("與第一次輸入的不同!");
-				System.out.print("請再輸入一次密碼:");
-				pw2 = sc.nextInt();
-				if(pw1 == pw2) {
-					System.out.println("密碼正確");
-					break;
-				}else{
-					//System.out.println("與第一次輸入的不同!");
-					if(i == 3) {
-						throw  new  RuntimeException();
-						
-					}
-					
-					
-				}
-				
+			  int count = 0;
+			  while (true) {
+			    // 输入代码
+			    if (pw1!=pw2) {
+			      if (count != 2) {
+			    	count++;
+			    	System.out.println("與第一次輸入的不同!");
+			    	System.out.print("請再輸入一次密碼:");
+					pw2 = sc.nextInt();
+			        
+			      
+			    }
+			      else {
+			    	  throw new RuntimeException("輸入三次錯誤！程式停止！");
+			      }
+			  }
 			}
-
 		}
 
 	}
